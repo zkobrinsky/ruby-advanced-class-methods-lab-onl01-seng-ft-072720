@@ -30,6 +30,7 @@ class Song
     song.name = name
     song.save
     song
+<<<<<<< HEAD
   end
 
   def self.find_by_name(name)
@@ -46,11 +47,30 @@ class Song
 
   def self.alphabetical
     @@all.sort_by {|obj| obj.name}
+=======
+  end
+
+  def self.find_by_name(name)
+    @@all.find{|song_name| song_name.name == name}
+  end
+
+  def self.find_or_create_by_name(name)
+    if self.find_by_name(name) == nil
+      self.create_by_name(name)
+    else
+      self.find_by_name(name)
+    end
+  end
+
+  def self.alphabetical
+
+>>>>>>> 52460f359588fb1ac02b72f2d3ff84c7da59ecf2
     #returns just titles alphebatized by name in array
     # song_names = []
     # self.all.each{|song| song_names << song.name
     # }
     # song_names.sort
+<<<<<<< HEAD
   end
 
   def self.new_from_filename(filename)
@@ -84,6 +104,9 @@ class Song
 
   def self.destroy_all
     self.all.clear
+=======
+    @@all.sort_by {|obj| obj.name}
+>>>>>>> 52460f359588fb1ac02b72f2d3ff84c7da59ecf2
   end
 
 
